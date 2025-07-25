@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afua RhichFurnish | Premium 3D Furniture in Ghana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="chair-leg"></div>
+            <div class="chair-seat"></div>
+            <div class="chair-back"></div>
+        </div>
+        <p>Loading Afua RhichFurnish...</p>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Afua Rhich<span>Furnish</span></a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="custom.html" class="nav-link">Custom 3D</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="search.html" class="search-btn"><i class="fas fa-search"></i></a>
+                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                    <a href="account.html" class="user-btn"><i class="fas fa-user"></i></a>
+                </div>
+            </nav>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Elevate Your Space with <span>Authentic Ghanaian Furniture</span></h1>
+                <p>Handcrafted excellence meets modern 3D design technology. Visualize before you buy with our interactive 3D models.</p>
+                <div class="hero-btns">
+                    <a href="products.html" class="btn primary-btn">Explore Collection</a>
+                    <a href="custom.html" class="btn secondary-btn">Design Your Own</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="3d-model-container" id="hero-model">
+                    <!-- 3D model will be loaded here -->
+                    <img src="images/Elevate Your Space with Authentic Ghanaian Furniture.jpg" alt="Premium Ghanaian Chair" class="placeholder-img">
+                </div>
+                <div class="color-options">
+                    <span class="color-option" style="background-color: #8B5A2B;" data-color="brown"></span>
+                    <span class="color-option" style="background-color: #000000;" data-color="black"></span>
+                    <span class="color-option" style="background-color: #C19A6B;" data-color="beige"></span>
+                    <span class="color-option" style="background-color: #654321;" data-color="dark-brown"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span class="scroll-dot active"></span>
+            <span class="scroll-dot"></span>
+            <span class="scroll-dot"></span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose AfroFurnish?</h2>
+                <p>We combine traditional Ghanaian craftsmanship with cutting-edge technology</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Visualization</h3>
+                    <p>View our furniture in 3D before purchasing. Rotate, zoom, and customize to see how it fits your space.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable Materials</h3>
+                    <p>Ethically sourced Ghanaian hardwoods and eco-friendly finishes for a greener home.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Artisan Crafted</h3>
+                    <p>Each piece is handcrafted by skilled Ghanaian artisans supporting local communities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>Free delivery to Accra, Kumasi, and Takoradi. Affordable rates across Ghana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Featured Collections</h2>
+                <p>Inspired by Ghana's rich cultural heritage</p>
+                <a href="products.html" class="view-all">View All Products <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="swiper products-slider">
+                <div class="swiper-wrapper">
+                    <!-- Product 1 -->
+                    <div class="swiper-slide product-card">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="images/Adinkra Royal Chair.jpg" alt="Adinkra Royal Chair">
+                            <div class="product-actions">
+                                <button class="quick-view" data-model="chair1"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Adinkra Royal Chair</h3>
+                            <div class="product-price">
+                                <span class="current-price">₵ 1,299</span>
+                                <span class="original-price">₵ 1,599</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(24)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="swiper-slide product-card">
+                        <div class="product-badge new">New</div>
+                        <div class="product-image">
+                            <img src="images/Kente Pattern Dining Table.jpg" alt="Kente Pattern Dining Table">
+                            <div class="product-actions">
+                                <button class="quick-view" data-model="table1"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Kente Pattern Dining Table</h3>
+                            <div class="product-price">
+                                <span class="current-price">₵ 3,499</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(12)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="swiper-slide product-card">
+                        <div class="product-image">
+                            <img src="images/Ashanti Lounge Sofa.jpg" alt="Ashanti Lounge Sofa">
+                            <div class="product-actions">
+                                <button class="quick-view" data-model="sofa1"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Ashanti Lounge Sofa</h3>
+                            <div class="product-price">
+                                <span class="current-price">₵ 4,799</span>
+                                <span class="original-price">₵ 5,299</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(37)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="swiper-slide product-card">
+                        <div class="product-badge">Limited</div>
+                        <div class="product-image">
+                            <img src="images/Akan Storage Cabinet.jpg" alt="Akan Storage Cabinet">
+                            <div class="product-actions">
+                                <button class="quick-view" data-model="cabinet1"><i class="fas fa-eye"></i></button>
+                                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                                <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Akan Storage Cabinet</h3>
+                            <div class="product-price">
+                                <span class="current-price">₵ 2,899</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(18)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Customizer Section -->
+    <section class="customizer">
+        <div class="container">
+            <div class="customizer-content">
+                <h2>Create Your Dream Furniture with Our <span>3D Customizer</span></h2>
+                <p>Mix and match materials, colors, and designs to create furniture that perfectly matches your style and space. Our advanced 3D visualization tool lets you see your creation in real-time before ordering.</p>
+                <ul class="customizer-features">
+                    <li><i class="fas fa-check-circle"></i> Choose from 15+ Ghanaian wood types</li>
+                    <li><i class="fas fa-check-circle"></i> 50+ fabric and upholstery options</li>
+                    <li><i class="fas fa-check-circle"></i> Adjust dimensions to fit your space</li>
+                    <li><i class="fas fa-check-circle"></i> Add traditional Adinkra symbols</li>
+                </ul>
+                <a href="custom.html" class="btn primary-btn">Start Designing Now</a>
+            </div>
+            
+            <div class="customizer-preview">
+                <div class="3d-model-container" id="customizer-model">
+                    <!-- 3D customizer model will be loaded here -->
+                    <img src="images/3D Customizer.jpg" alt="3D Customizer Preview" class="placeholder-img">
+                </div>
+                <div class="customizer-controls">
+                    <button class="control-btn" data-action="rotate"><i class="fas fa-sync-alt"></i> Rotate</button>
+                    <button class="control-btn" data-action="zoom-in"><i class="fas fa-search-plus"></i> Zoom In</button>
+                    <button class="control-btn" data-action="zoom-out"><i class="fas fa-search-minus"></i> Zoom Out</button>
+                    <button class="control-btn" data-action="reset"><i class="fas fa-undo"></i> Reset</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from satisfied customers across Ghana</p>
+            </div>
+            
+            <div class="swiper testimonials-slider">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The 3D visualization helped me choose the perfect dining set for my home in East Legon. The quality exceeded my expectations!"</p>
+                        <div class="testimonial-author">
+                            <img src="images/Ama.jpg" alt="Ama Mensah">
+                            <div class="author-info">
+                                <h4>Ama Mensah</h4>
+                                <span>Accra</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"As an interior designer, I appreciate being able to show clients exactly how furniture will look in their space before purchasing."</p>
+                        <div class="testimonial-author">
+                            <img src="images/Selasi.jpg" alt="Kwame Osei">
+                            <div class="author-info">
+                                <h4>Tsewor Johnson Selasi</h4>
+                                <span>Kumasi</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"The customizer allowed me to create a unique bookshelf that fits perfectly in my oddly-shaped living room. Delivery to Takoradi was prompt."</p>
+                        <div class="testimonial-author">
+                            <img src="images/sam.jpg" alt="Esi Boateng">
+                            <div class="author-info">
+                                <h4>Boateng</h4>
+                                <span>Takoradi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for exclusive offers, new arrivals, and design inspiration</p>
+            </div>
+            
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn primary-btn">Subscribe</button>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="agree-terms" required>
+                    <label for="agree-terms">I agree to receive marketing communications from Afua RhichFurnish</label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">Selasi Furnish</h3>
+                    <p>Bringing Ghanaian craftsmanship into the digital age with 3D visualization and custom furniture design.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="I'm on Instagram as @maameafuagyanbaquayson. Install the app to follow my photos and videos. https://www.instagram.com/maameafuagyanbaquayson?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/maame-afua-quayson-7573a836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="tiktok.com/@richarich60"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custom.html">3D Customizer</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                
+                    </ul>
+                </div>
+                
+                 
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> East - Legon Accra, Ghana</li>
+                        <li><i class="fas fa-phone"></i> +233 599 547 260</li>
+                        <li><i class="fas fa-envelope"></i> maamequayson@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM | Sat: 10AM - 4PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Afua RhichFurnish. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <img src="images/MTN Mobile Money.jpg" alt="MTN Mobile Money">
+                    <img src="images/Visa.jpg" alt="Visa">
+                    <img src="images/Mastercard.jpg" alt="Mastercard">
+                    <img src="images/Airtel Money.jpg" alt="Airtel Money">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Content will be loaded via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal search-modal" id="searchModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form class="search-form">
+                <input type="text" placeholder="Search for furniture, collections, or styles...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches:</h4>
+                <ul>
+                    <li><a href="products.html?q=adinkra">Adinkra Chairs</a></li>
+                    <li><a href="products.html?q=kente">Kente Pattern Furniture</a></li>
+                    <li><a href="products.html?q=dining">Dining Sets</a></li>
+                    <li><a href="products.html?q=sofa">Luxury Sofas</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

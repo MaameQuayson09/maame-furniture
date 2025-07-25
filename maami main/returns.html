@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns & Exchanges - 3DShop</title>
+    <!-- Same header styles as customer-service.html -->
+    <style>
+        /* Base styles same as customer-service.html */
+        
+        .returns-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .returns-policy {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .returns-policy {
+                padding: 2rem;
+            }
+        }
+        .policy-points {
+            margin: 1.5rem 0;
+        }
+        .policy-point {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        .policy-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+        .return-steps {
+            counter-reset: step-counter;
+            margin: 2rem 0;
+        }
+        .return-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+            counter-increment: step-counter;
+        }
+        .return-step:last-child {
+            margin-bottom: 0;
+        }
+        .return-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .return-step h3 {
+            margin-top: 0;
+        }
+        .exceptions-list {
+            background: #fff8f8;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">3DShop</div>
+        <div class="nav-icons">
+            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">3</span></a>
+            <a href="account.html" class="user-btn"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header animate__animated animate__fadeIn">
+            <h1>Returns & Exchanges</h1>
+            <p>Our hassle-free return policy and simple process for exchanges.</p>
+        </div>
+
+        <div class="returns-container">
+            <div class="returns-policy animate__animated animate__fadeIn">
+                <h2>Return Policy</h2>
+                <p>We want you to be completely satisfied with your purchase. If you're not happy with your item, we're happy to offer returns or exchanges within 30 days of delivery.</p>
+                
+                <div class="policy-points">
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div>
+                            <h3>30-Day Window</h3>
+                            <p>You have 30 days from the delivery date to initiate a return or exchange.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-box-open"></i></div>
+                        <div>
+                            <h3>Original Condition</h3>
+                            <p>Items must be unused, in their original packaging, and with all tags attached.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div>
+                            <h3>Refund Method</h3>
+                            <p>Refunds will be issued to the original payment method within 5-7 business days after we receive your return.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="exceptions-list">
+                    <h3>Non-Returnable Items:</h3>
+                    <ul>
+                        <li>Custom or personalized items</li>
+                        <li>Final sale items (marked as such on product page)</li>
+                        <li>Items damaged due to misuse or normal wear and tear</li>
+                        <li>Gift cards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="returns-policy animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+                <h2>How to Return an Item</h2>
+                <p>Follow these simple steps to return an item:</p>
+                
+                <div class="return-steps">
+                    <div class="return-step">
+                        <h3>Initiate Your Return</h3>
+                        <p>Log in to your account and go to "Order History" to start the return process. Alternatively, contact our customer service team with your order number.</p>
+                    </div>
+                    
+                    <div class="return-step">
+                        <h3>Pack Your Item</h3>
+                        <p>Place the item in its original packaging with all tags and accessories included. Include the original packing slip or invoice.</p>
+                    </div>
+                    
+                    <div class="return-step">
+                        <h3>Ship It Back</h3>
+                        <p>Use the prepaid return label we provide (for US returns) or ship the package to our return center. For international returns, you may need to cover return shipping costs.</p>
+                    </div>
+                    
+                    <div class="return-step">
+                        <h3>Receive Your Refund</h3>
+                        <p>Once we receive and inspect your return, we'll process your refund within 3-5 business days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="returns-policy animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+                <h2>Exchange Process</h2>
+                <p>Want a different size, color, or style? Here's how exchanges work:</p>
+                
+                <div class="policy-points">
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div>
+                            <h3>Same Product Exchanges</h3>
+                            <p>For exchanges of the same product in a different size or color, follow the return process and place a new order for the item you want.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-undo"></i></div>
+                        <div>
+                            <h3>Different Product Exchanges</h3>
+                            <p>For exchanges to a completely different product, return the original item for a refund and place a new order for the desired product.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-point">
+                        <div class="policy-icon"><i class="fas fa-truck"></i></div>
+                        <div>
+                            <h3>Quick Exchange Service</h3>
+                            <p>For eligible items, we offer a Quick Exchange service where we ship your new item as soon as your return is initiated, before we receive your returned item.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-toast" id="feedbackToast"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart count
+            updateCartCount(localStorage.getItem('cartCount') || 3);
+            
+            function updateCartCount(count) {
+                const cartCountElement = document.querySelector('.cart-count');
+                if (cartCountElement) {
+                    cartCountElement.textContent = count;
+                }
+            }
+            
+            function showFeedback(message) {
+                const toast = document.getElementById('feedbackToast');
+                toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

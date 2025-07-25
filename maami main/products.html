@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Afua RhichFurnish 3D Furniture in Ghana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="chair-leg"></div>
+            <div class="chair-seat"></div>
+            <div class="chair-back"></div>
+        </div>
+        <p>Loading Afua RhichFurnish...</p>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Afua <span>RhichFurnish</span></a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link active">Products</a></li>
+                    <li class="nav-item"><a href="custom.html" class="nav-link">Custom 3D</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="search.html" class="search-btn"><i class="fas fa-search"></i></a>
+                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                    <a href="account.html" class="user-btn"><i class="fas fa-user"></i></a>
+                </div>
+            </nav>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Hero -->
+    <section class="page-hero products-hero">
+        <div class="container">
+            <h1>Our Premium Furniture Collection</h1>
+            <p>Explore our handcrafted Ghanaian furniture with interactive 3D previews</p>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All Products</button>
+                <button class="tab-btn" data-category="chairs">Chairs</button>
+                <button class="tab-btn" data-category="tables">Tables</button>
+                <button class="tab-btn" data-category="sofas">Sofas</button>
+                <button class="tab-btn" data-category="storage">Storage</button>
+                <button class="tab-btn" data-category="beds">Beds</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid with 3D Previews -->
+    <section class="products-grid">
+        <div class="container">
+            <div class="grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="chairs">
+                     <img src="images/Adinkra Royal Chair.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Adinkra Royal Chair</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 1,299</span>
+                            <span class="original-price">₵ 1,599</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="chair1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-category="tables">
+                   <img src="images/Kente Pattern Dining Table.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Kente Pattern Dining Table</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 3,499</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="table1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-category="sofas">
+                    <img src="images/Ashanti Lounge Sofa 11.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Ashanti Lounge Sofa</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 4,799</span>
+                            <span class="original-price">₵ 5,299</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="sofa1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-category="storage">
+                   <img src="images/Akan Storage Cabinet 11.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Akan Storage Cabinet</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 2,899</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="cabinet1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-category="beds">
+                   <img src="images/Ghanaian Queen Bed.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Ghanaian Queen Bed</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 5,999</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="bed1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-category="chairs">
+                   <img src="images/Fante Stool.jpg" alt="">
+                    <div class="product-info">
+                        <h3>Fante Stool</h3>
+                        <div class="product-price">
+                            <span class="current-price">₵ 899</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="quick-view" data-model="stool1"><i class="fas fa-eye"></i> 3D View</button>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-btn active">1</a>
+                <a href="#" class="page-btn">2</a>
+                <a href="#" class="page-btn">3</a>
+                <a href="#" class="page-btn next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured-collection">
+        <div class="container">
+            <div class="section-header">
+                <h2>Adinkra Symbol Collection</h2>
+                <p>Furniture featuring traditional Ghanaian Adinkra symbols</p>
+            </div>
+            
+            <div class="collection-slider">
+                <div class="swiper featured-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Collection Item 1 -->
+                        <div class="swiper-slide collection-item">
+                          
+                            <div class="collection-info">
+                                <img src="images/Adinkra Dining set.jpg" alt="">
+                                <h3>Adinkra Dining Set</h3>
+                                <p>Complete 6-piece dining set with hand-carved symbols</p>
+                                <a href="#" class="btn primary-btn">View Collection</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Collection Item 2 -->
+                        <div class="swiper-slide collection-item">
+                            
+                            <div class="collection-info">
+                                 <img src="images/symbol coffee table.jpg" alt="">
+                                <h3>Symbol Coffee Table</h3>
+                                <p>Glass-top table with Adinkra-inspired base</p>
+                                <a href="#" class="btn primary-btn">View Collection</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Collection Item 3 -->
+                        <div class="swiper-slide collection-item">
+                             
+                            <div class="collection-info">
+                                 <img src="images/Heritage bookshelf in ghana.jpg" alt="">
+                                <h3>Heritage Bookshelf</h3>
+                                <p>5-tier bookshelf featuring multiple Adinkra symbols</p>
+                                <a href="#" class="btn primary-btn">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">Selasi Furnish</h3>
+                    <p>Bringing Ghanaian craftsmanship into the digital age with 3D visualization and custom furniture design.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="I'm on Instagram as @maameafuagyanbaquayson. Install the app to follow my photos and videos. https://www.instagram.com/maameafuagyanbaquayson?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/maame-afua-quayson-7573a836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="tiktok.com/@richarich60"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custom.html">3D Customizer</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                
+                    </ul>
+                </div>
+                
+                 
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> East - Legon Accra, Ghana</li>
+                        <li><i class="fas fa-phone"></i> +233 599 547 260</li>
+                        <li><i class="fas fa-envelope"></i> maamequayson@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM | Sat: 10AM - 4PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Afua RhichFurnish. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <img src="images/MTN Mobile Money.jpg" alt="MTN Mobile Money">
+                    <img src="images/Visa.jpg" alt="Visa">
+                    <img src="images/Mastercard.jpg" alt="Mastercard">
+                    <img src="images/Airtel Money.jpg" alt="Airtel Money">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 3D Viewer Modal -->
+    <div class="modal viewer-modal" id="viewerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="viewer-container" id="fullscreen-viewer"></div>
+                <div class="viewer-controls">
+                    <div class="color-options">
+                        <h4>Change Color:</h4>
+                        <div class="colors">
+                            <span class="color-option" style="background-color: #8B5A2B;" data-color="brown"></span>
+                            <span class="color-option" style="background-color: #000000;" data-color="black"></span>
+                            <span class="color-option" style="background-color: #C19A6B;" data-color="beige"></span>
+                            <span class="color-option" style="background-color: #654321;" data-color="dark-brown"></span>
+                        </div>
+                    </div>
+                    <div class="viewer-actions">
+                        <button class="btn primary-btn add-to-cart-btn">Add to Cart</button>
+                        <button class="btn secondary-btn">Save to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="3d-viewer.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize 3D models for product cards
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all product 3D previews
+            initProductModel('product-1-model', 'models/chair1.glb');
+            initProductModel('product-2-model', 'models/table1.glb');
+            initProductModel('product-3-model', 'models/sofa1.glb');
+            initProductModel('product-4-model', 'models/cabinet1.glb');
+            initProductModel('product-5-model', 'models/bed1.glb');
+            initProductModel('product-6-model', 'models/stool1.glb');
+            
+            // Initialize collection 3D previews
+            initProductModel('collection-1-model', 'models/dining-set.glb');
+            initProductModel('collection-2-model', 'models/coffee-table.glb');
+            initProductModel('collection-3-model', 'models/bookshelf.glb');
+            
+            // Initialize featured collection swiper
+            const featuredSwiper = new Swiper('.featured-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                    }
+                }
+            });
+            
+            // Category tabs functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            // Restart 3D animation when becoming visible
+                            const modelId = card.querySelector('.product-3d-preview').id;
+                            restartModelAnimation(modelId);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Quick view buttons
+            document.querySelectorAll('.quick-view').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modelId = this.getAttribute('data-model');
+                    openFullscreenViewer(modelId);
+                });
+            });
+        });
+        
+        function openFullscreenViewer(modelId) {
+            const modal = document.getElementById('viewerModal');
+            const viewerContainer = document.getElementById('fullscreen-viewer');
+            
+            // Clear previous model
+            while (viewerContainer.firstChild) {
+                viewerContainer.removeChild(viewerContainer.firstChild);
+            }
+            
+            // Load the selected model
+            initFullscreenModel('fullscreen-viewer', `models/${modelId}.glb`);
+            
+            // Show modal
+            modal.classList.add('active');
+        }
+    </script>
+</body>
+</html>

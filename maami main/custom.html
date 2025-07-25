@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom 3D Designer | Afua RhichFurnish - Premium 3D Furniture in Ghana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/DragControls.js"></script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="chair-leg"></div>
+            <div class="chair-seat"></div>
+            <div class="chair-back"></div>
+        </div>
+        <p>Loading 3D Designer...</p>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Afua Rhich<span>Furnish</span></a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="custom.html" class="nav-link active">Custom 3D</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                    <a href="account.html" class="user-btn"><i class="fas fa-user"></i></a>
+                </div>
+            </nav>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Designer Hero -->
+    <section class="page-hero custom-hero">
+        <div class="container">
+            <h1>3D Furniture Designer</h1>
+            <p>Create your perfect piece with our interactive 3D designer</p>
+        </div>
+    </section>
+
+    <!-- Custom Designer -->
+    <section class="custom-designer">
+        <div class="container">
+            <div class="designer-container">
+                <div class="designer-toolbar">
+                    <div class="toolbar-section">
+                        <h4>Furniture Type</h4>
+                        <div class="type-options">
+                            <button class="type-option active" data-type="chair"><i class="fas fa-chair"></i> Chair</button>
+                            <button class="type-option" data-type="table"><i class="fas fa-table"></i> Table</button>
+                            <button class="type-option" data-type="sofa"><i class="fas fa-couch"></i> Sofa</button>
+                            <button class="type-option" data-type="bed"><i class="fas fa-bed"></i> Bed</button>
+                            <button class="type-option" data-type="storage"><i class="fas fa-archive"></i> Storage</button>
+                        </div>
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <h4>Materials</h4>
+                        <div class="material-options">
+                            <div class="material-option active" data-material="mahogany">
+                                <div class="material-preview" style="background-color: #6b4423;"></div>
+                                <span>Mahogany</span>
+                            </div>
+                            <div class="material-option" data-material="oak">
+                                <div class="material-preview" style="background-color: #c19a6b;"></div>
+                                <span>Oak</span>
+                            </div>
+                            <div class="material-option" data-material="walnut">
+                                <div class="material-preview" style="background-color: #38220f;"></div>
+                                <span>Walnut</span>
+                            </div>
+                            <div class="material-option" data-material="wenge">
+                                <div class="material-preview" style="background-color: #3a2a1a;"></div>
+                                <span>Wenge</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <h4>Adinkra Symbols</h4>
+                        <div class="symbol-options">
+                            <div class="symbol-option" data-symbol="gye-nyame">
+                                <img src="images/Gye Nyame Gye Nyame.jpg" alt="Gye Nyame">
+                                <span>Gye Nyame</span>
+                            </div>
+                            <div class="symbol-option" data-symbol="sankofa">
+                                <img src="images/Sankofa Sankofa.jpg" alt="Sankofa">
+                                <span>Sankofa</span>
+                            </div>
+                            <div class="symbol-option" data-symbol="denkyem">
+                                <img src="images/Denkyem Denkyem.jpg" alt="Denkyem">
+                                <span>Denkyem</span>
+                            </div>
+                            <div class="symbol-option" data-symbol="akoma">
+                                <img src="images/Akoma Akoma.jpg" alt="Akoma">
+                                <span>Akoma</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="toolbar-section">
+                        <h4>Dimensions (cm)</h4>
+                        <div class="dimension-controls">
+                            <div class="dimension">
+                                <label>Width</label>
+                                <input type="range" min="50" max="200" value="80" class="dimension-slider" data-dimension="width">
+                                <span class="dimension-value">80 cm</span>
+                            </div>
+                            <div class="dimension">
+                                <label>Height</label>
+                                <input type="range" min="30" max="150" value="90" class="dimension-slider" data-dimension="height">
+                                <span class="dimension-value">90 cm</span>
+                            </div>
+                            <div class="dimension">
+                                <label>Depth</label>
+                                <input type="range" min="40" max="120" value="60" class="dimension-slider" data-dimension="depth">
+                                <span class="dimension-value">60 cm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="designer-viewport">
+                    <div class="3d-designer-view" id="designer-viewport"></div>
+                    <div class="designer-controls">
+                        <button class="control-btn" data-action="rotate"><i class="fas fa-sync-alt"></i> Rotate</button>
+                        <button class="control-btn" data-action="zoom-in"><i class="fas fa-search-plus"></i> Zoom In</button>
+                        <button class="control-btn" data-action="zoom-out"><i class="fas fa-search-minus"></i> Zoom Out</button>
+                        <button class="control-btn" data-action="reset"><i class="fas fa-undo"></i> Reset View</button>
+                    </div>
+                </div>
+                
+                <div class="designer-summary">
+                    <h3>Your Custom Design</h3>
+                    <div class="summary-details">
+                        <div class="detail">
+                            <span class="detail-label">Type:</span>
+                            <span class="detail-value" id="summary-type">Chair</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Material:</span>
+                            <span class="detail-value" id="summary-material">Mahogany</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Symbols:</span>
+                            <span class="detail-value" id="summary-symbols">None</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Dimensions:</span>
+                            <span class="detail-value" id="summary-dimensions">80 × 90 × 60 cm</span>
+                        </div>
+                    </div>
+                    <div class="price-estimate">
+                        <span>Estimated Price:</span>
+                        <span class="price">₵ <span id="estimated-price">1,499</span></span>
+                    </div>
+                    <div class="designer-actions">
+                        <button class="btn primary-btn" id="save-design"><i class="fas fa-save"></i> Save Design</button>
+                        <button class="btn secondary-btn" id="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Gallery -->
+    <section class="design-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Inspiration Gallery</h2>
+                <p>See what others have created with our 3D designer</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                   <img src="images/Modern Adinkra Chair.jpg" alt="">
+                    <div class="gallery-info">
+                        <h3>Modern Adinkra Chair</h3>
+                        <p>By Kofi A.</p>
+                        <button class="btn small-btn" data-design="design1">Remix this Design</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                   <img src="images/Kente Pattern Table.jpg" alt="">
+                    <div class="gallery-info">
+                        <h3>Kente Pattern Table</h3>
+                        <p>By Ama B.</p>
+                        <button class="btn small-btn" data-design="design2">Remix this Design</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                     <img src="images/Traditional Stool.jpg" alt="">
+                    <div class="gallery-info">
+                        <h3>Traditional Stool</h3>
+                        <p>By Kwame D.</p>
+                        <button class="btn small-btn" data-design="design3">Remix this Design</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">Selasi Furnish</h3>
+                    <p>Bringing Ghanaian craftsmanship into the digital age with 3D visualization and custom furniture design.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="I'm on Instagram as @maameafuagyanbaquayson. Install the app to follow my photos and videos. https://www.instagram.com/maameafuagyanbaquayson?igsh=YzljYTk1ODg3Zg=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/maame-afua-quayson-7573a836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                        <a href="tiktok.com/@richarich60"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custom.html">3D Customizer</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                
+                    </ul>
+                </div>
+                
+                 
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> East - Legon Accra, Ghana</li>
+                        <li><i class="fas fa-phone"></i> +233 599 547 260</li>
+                        <li><i class="fas fa-envelope"></i> maamequayson@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM | Sat: 10AM - 4PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Afua RhichFurnish. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <img src="images/MTN Mobile Money.jpg" alt="MTN Mobile Money">
+                    <img src="images/Visa.jpg" alt="Visa">
+                    <img src="images/Mastercard.jpg" alt="Mastercard">
+                    <img src="images/Airtel Money.jpg" alt="Airtel Money">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Save Design Modal -->
+    <div class="modal save-modal" id="saveModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h3>Save Your Design</h3>
+                <form id="saveDesignForm">
+                    <div class="form-group">
+                        <label for="design-name">Design Name</label>
+                        <input type="text" id="design-name" placeholder="e.g. My Custom Chair" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="design-description">Description (Optional)</label>
+                        <textarea id="design-description" placeholder="Tell us about your design..."></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="share-design">
+                        <label for="share-design">Share to inspiration gallery (anonymous)</label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn">Save Design</button>
+                        <button type="button" class="btn secondary-btn cancel-save">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="3d-designer.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize 3D designer
+            initDesigner('designer-viewport');
+            
+            // Initialize gallery previews
+            initGalleryModel('gallery-1-model', 'models/design1.glb');
+            initGalleryModel('gallery-2-model', 'models/design2.glb');
+            initGalleryModel('gallery-3-model', 'models/design3.glb');
+            
+            // Type selection
+            document.querySelectorAll('.type-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.type-option').forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    const type = this.getAttribute('data-type');
+                    updateDesignerType(type);
+                    
+                    // Update summary
+                    document.getElementById('summary-type').textContent = 
+                        type.charAt(0).toUpperCase() + type.slice(1);
+                });
+            });
+            
+            // Material selection
+            document.querySelectorAll('.material-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.material-option').forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    const material = this.getAttribute('data-material');
+                    updateDesignerMaterial(material);
+                    
+                    // Update summary
+                    document.getElementById('summary-material').textContent = 
+                        material.charAt(0).toUpperCase() + material.slice(1);
+                });
+            });
+            
+            // Symbol selection
+            document.querySelectorAll('.symbol-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const symbol = this.getAttribute('data-symbol');
+                    toggleDesignerSymbol(symbol);
+                    
+                    // Update summary
+                    updateSymbolsSummary();
+                });
+            });
+            
+            // Dimension sliders
+            document.querySelectorAll('.dimension-slider').forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const dimension = this.getAttribute('data-dimension');
+                    const value = this.value;
+                    
+                    // Update displayed value
+                    this.nextElementSibling.textContent = `${value} cm`;
+                    
+                    // Update model
+                    updateDesignerDimension(dimension, value);
+                    
+                    // Update summary
+                    updateDimensionsSummary();
+                });
+            });
+            
+            // Save design button
+            document.getElementById('save-design').addEventListener('click', function() {
+                document.getElementById('saveModal').classList.add('active');
+            });
+            
+            // Cancel save button
+            document.querySelector('.cancel-save').addEventListener('click', function() {
+                document.getElementById('saveModal').classList.remove('active');
+            });
+            
+            // Save design form
+            document.getElementById('saveDesignForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // In a real app, this would save to user's account
+                alert('Design saved successfully!');
+                document.getElementById('saveModal').classList.remove('active');
+            });
+            
+            // Remix buttons in gallery
+            document.querySelectorAll('[data-design]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const design = this.getAttribute('data-design');
+                    loadGalleryDesign(design);
+                    alert(`Loading ${design} to remix...`);
+                });
+            });
+            
+            function updateSymbolsSummary() {
+                const activeSymbols = Array.from(document.querySelectorAll('.symbol-option.active'))
+                    .map(el => el.querySelector('span').textContent)
+                    .join(', ');
+                
+                document.getElementById('summary-symbols').textContent = 
+                    activeSymbols || 'None';
+            }
+            
+            function updateDimensionsSummary() {
+                const width = document.querySelector('[data-dimension="width"]').value;
+                const height = document.querySelector('[data-dimension="height"]').value;
+                const depth = document.querySelector('[data-dimension="depth"]').value;
+                
+                document.getElementById('summary-dimensions').textContent = 
+                    `${width} × ${height} × ${depth} cm`;
+            }
+        });
+    </script>
+</body>
+</html>

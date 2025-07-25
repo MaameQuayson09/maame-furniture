@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            perspective: 1000px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            transform-style: preserve-3d;
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) rotateY(0); }
+            50% { transform: translateY(-5px) rotateY(10deg); }
+        }
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+        .nav-icons a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-icons a:hover {
+            transform: translateY(-3px);
+        }
+        .cart-count {
+            background: var(--accent);
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            transform: scale(1);
+            transition: transform 0.2s;
+        }
+        .cart-btn:hover .cart-count {
+            transform: scale(1.2);
+        }
+        .search-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+        .search-box {
+            display: flex;
+            margin-bottom: 2rem;
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+        }
+        .search-box input {
+            flex-grow: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        @media (min-width: 768px) {
+            .search-box input {
+                padding: 1rem 1.5rem;
+                font-size: 1.1rem;
+            }
+        }
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .search-box button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .search-box button {
+                padding: 0 2rem;
+            }
+        }
+        .search-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        .search-box button i {
+            font-size: 1rem;
+        }
+        @media (min-width: 768px) {
+            .search-box button i {
+                margin-right: 0.5rem;
+            }
+            .search-box button::after {
+                content: 'Search';
+            }
+        }
+        .search-results {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 1.5rem;
+            transform-style: preserve-3d;
+        }
+        @media (min-width: 768px) {
+            .search-results {
+                padding: 2rem;
+            }
+        }
+        .search-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 576px) {
+            .search-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        .search-header h2 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+        }
+        @media (min-width: 576px) {
+            .search-header h2 {
+                margin: 0;
+            }
+        }
+        .search-sort {
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background-color: white;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        @media (min-width: 576px) {
+            .search-sort {
+                width: auto;
+                font-size: 1rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .search-sort {
+                padding: 0.8rem 1rem;
+            }
+        }
+        .search-sort:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        @media (min-width: 576px) {
+            .product-grid {
+                gap: 2rem;
+            }
+        }
+        .product-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+            transform-style: preserve-3d;
+        }
+        .product-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .product-image {
+            height: 180px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .product-image {
+                height: 220px;
+            }
+        }
+        @media (min-width: 992px) {
+            .product-image {
+                height: 250px;
+            }
+        }
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(15deg);
+        }
+        .product-info {
+            padding: 1.2rem;
+        }
+        @media (min-width: 768px) {
+            .product-info {
+                padding: 1.5rem;
+            }
+        }
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        @media (min-width: 768px) {
+            .product-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+        }
+        .product-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        @media (min-width: 768px) {
+            .product-price {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+        }
+        .product-price .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        @media (min-width: 768px) {
+            .product-rating {
+                margin-bottom: 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        .add-to-cart {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 768px) {
+            .add-to-cart {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+        }
+        .add-to-cart i {
+            margin-right: 0.5rem;
+        }
+        .add-to-cart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(67, 97, 238, 0.3);
+        }
+        .add-to-cart:active {
+            transform: translateY(1px);
+        }
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        @media (min-width: 768px) {
+            .no-results {
+                padding: 3rem;
+            }
+        }
+        .no-results i {
+            font-size: 3rem;
+            color: #ddd;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        @media (min-width: 768px) {
+            .no-results i {
+                font-size: 5rem;
+            }
+        }
+        .no-results h2 {
+            margin-bottom: 1rem;
+        }
+        .feedback-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateX(150%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            max-width: calc(100% - 40px);
+        }
+        @media (min-width: 576px) {
+            .feedback-toast {
+                padding: 1rem 1.5rem;
+                max-width: 350px;
+            }
+        }
+        .feedback-toast i {
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+        @media (min-width: 576px) {
+            .feedback-toast i {
+                font-size: 1.2rem;
+            }
+        }
+        .feedback-toast.show {
+            transform: translateX(0);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">3DShop</div>
+        <div class="nav-icons">
+            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">3</span></a>
+            <a href="account.html" class="user-btn"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <div class="search-box animate__animated animate__fadeInDown">
+            <input type="text" placeholder="Search for products..." value="3D Products">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="search-results animate__animated animate__fadeIn">
+            <div class="search-header">
+                <h2>Search Results for "3D Products"</h2>
+                <select class="search-sort">
+                    <option>Sort by: Relevance</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Customer Rating</option>
+                    <option>Newest Arrivals</option>
+                </select>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">New</span>
+                        <img src="https://via.placeholder.com/300" alt="3D Product">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">3D Printed Sculpture</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="color: #666; font-size: 0.8rem;">(42)</span>
+                        </div>
+                        <div class="product-price">$49.99 <span class="old-price">$59.99</span></div>
+                        <button class="add-to-cart" onclick="addToCart('3D Printed Sculpture')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Sale</span>
+                        <img src="https://via.placeholder.com/300" alt="3D Product">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">3D Modeling Kit</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span style="color: #666; font-size: 0.8rem;">(36)</span>
+                        </div>
+                        <div class="product-price">$79.99 <span class="old-price">$99.99</span></div>
+                        <button class="add-to-cart" onclick="addToCart('3D Modeling Kit')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300" alt="3D Product">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">3D Animation Software</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span style="color: #666; font-size: 0.8rem;">(128)</span>
+                        </div>
+                        <div class="product-price">$129.99</div>
+                        <button class="add-to-cart" onclick="addToCart('3D Animation Software')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-toast" id="feedbackToast">
+        <i class="fas fa-check-circle"></i> Item added to cart!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart count
+            updateCartCount(localStorage.getItem('cartCount') || 3);
+            
+            // Search functionality
+            document.querySelector('.search-box button').addEventListener('click', function() {
+                const query = document.querySelector('.search-box input').value;
+                // Perform search operation
+                console.log('Searching for:', query);
+                this.classList.add('animate__animated', 'animate__pulse');
+                setTimeout(() => {
+                    this.classList.remove('animate__animated', 'animate__pulse');
+                }, 1000);
+            });
+            
+            // Sort functionality
+            document.querySelector('.search-sort').addEventListener('change', function() {
+                showFeedback(`Sorted by: ${this.value}`);
+            });
+        });
+        
+        function addToCart(productName) {
+            // Get current cart count
+            let cartCount = parseInt(localStorage.getItem('cartCount')) || 3;
+            cartCount++;
+            
+            // Update storage and UI
+            localStorage.setItem('cartCount', cartCount);
+            updateCartCount(cartCount);
+            
+            // Show feedback
+            showFeedback(`${productName} added to cart!`);
+            
+            // Animate the clicked button
+            event.target.classList.add('animate__animated', 'animate__bounce');
+            setTimeout(() => {
+                event.target.classList.remove('animate__animated', 'animate__bounce');
+            }, 1000);
+        }
+        
+        function updateCartCount(count) {
+            const cartCountElement = document.querySelector('.cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = count;
+                // Animate the count when it changes
+                const cartIcon = document.querySelector('.cart-btn');
+                cartIcon.classList.add('animate__animated', 'animate__tada');
+                setTimeout(() => {
+                    cartIcon.classList.remove('animate__animated', 'animate__tada');
+                }, 1000);
+            }
+        }
+        
+        function showFeedback(message) {
+            const toast = document.getElementById('feedbackToast');
+            toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
